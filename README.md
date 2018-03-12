@@ -15,6 +15,6 @@
   * Install node.js v9.x on Guest VM #2
   
 ### Single Node
-Create a CentOS v7 Guest VM
+* Create a CentOS v7 Guest VM
   * Install NGINX 
   * Install node.js
