@@ -43,13 +43,26 @@ Configuring software needed for application deployment(s)...
 * Modify IP Address in **js/data.js** file
 
 ```
-     var url = "http://IP-ADDDRESS:3000/api/";
+var url = "http://IP-ADDDRESS:3000/api/";
 ```
+* Modify MSSQL database connection file
 
+```
+module.exports = {
+  connConfig: {
+    server: 'DB SERVER IP-ADDRESS',
+    database: 'DATABASE NAME',
+    user: 'SQL AGENT (i.e. 'sa')',
+    password: 'DB USER PASSWORD',
+    port: 'DB PORT'
+  }
+};
+
+```
 * Start server
 
 ```
-     $./server.js
+  $./server.js
 or
-     $ node server.js
+  $ node server.js
 ```
