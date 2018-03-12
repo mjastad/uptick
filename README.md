@@ -3,6 +3,15 @@ The uptick application is designed to be used as a boiler plate for provisioning
 
 ![uptick](./img/uptick.png)
 
+## Application State
+Currently the app will pull data from a target database and render it to a web-client.  Instrumentation is in place for SE's to add their own development for:
+
+* Add/Search Data by:
+  * ***Make***
+  * ***Model***
+  * ***Year***
+* Multiple Database(s)
+
 ## Requirements
 * CentOS v7
 * NGINX for CentOS v7
@@ -17,7 +26,7 @@ The uptick application is designed to be used as a boiler plate for provisioning
 
 ### Multi Node
 
-  [BROWSER/CLIENT] <--HTTP---> [NGINX-SERVER] <----REST----> [NODE-SERVER] <---ODBC Protocol---> [DATABASE-SERVER]
+  [BROWSER/CLIENT] <--HTTP--> [NGINX-SERVER] <--REST--> [NODE-SERVER] <--ODBC Protocol--> [DB-SERVER]
   
 * Create 2x CentOS v7 Guest VMs
   * Install NGINX on Guest VM #1
@@ -25,7 +34,7 @@ The uptick application is designed to be used as a boiler plate for provisioning
   
 ### Single Node
 
-  [BROWSER/CLIENT] <--HTTP---> [NGINX + NODE SERVER] <---ODBC Protocol---> [DATABASE-SERVER]
+  [BROWSER/CLIENT] <--HTTP--> [NGINX + NODE SERVER] <--ODBC Protocol--> [DB-SERVER]
 
 * Create a CentOS v7 Guest VM
   * Install NGINX 
@@ -41,8 +50,24 @@ Configuring software needed for application deployment(s)...
 * [Installing Mongoose on CentOS v7](https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/)
 
 ## Setup and Configuring Application
-* Install software to /var/www/html
-* Insure files (including full path) have **drwxr..xr..x** (755) privileges.
+### Install software:
+* Multi Node: 
+  * Install software to a working directory on the server configured with Node v9.x
+  * *Node v9.x Server*
+    * /routes
+    * /js
+    * /config
+    * server.js
+    * package.json
+  * *NGINX Server*
+    * /var/www/html/index.html
+    * /var/www/html/css
+    * /var/www/html/images
+    * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
+* **Single Node:** 
+  * Install software to */var/www/html* on the server where NGINX + Node v9.x is installed
+  * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
+  * Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
 
 ```
 % chmod -R 755 /var/www/html/*
@@ -52,7 +77,7 @@ Configuring software needed for application deployment(s)...
 * Build the node runtime for the project - this adds the required libs to the node runtime.
 
 ```
-% npm build /var/www/html/package.json
+% npm build [/node software directory]/package.json
 
 ```
 * Modify IP Address in **js/data.js** file
@@ -60,7 +85,7 @@ Configuring software needed for application deployment(s)...
 ```
 var url = "http://IP-ADDDRESS:3000/api/";
 ```
-* Modify MSSQL database connection file
+* Modify MSSQL database connection information in the *config/config.rst* file as follows:
 
 ```
 module.exports = {
