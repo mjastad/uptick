@@ -3,6 +3,15 @@ The uptick application is designed to be used as a boiler plate for provisioning
 
 ![uptick](./img/uptick.png)
 
+## Application State
+Currently the app will pull data from a target database and render it to a web-client.  Instrumentation is in place for SE's to add their own development for:
+
+* Add/Search Data by:
+  * ***Make***
+  * ***Model***
+  * ***Year***
+* Multiple Database(s)
+
 ## Requirements
 * CentOS v7
 * NGINX for CentOS v7
