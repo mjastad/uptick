@@ -9,6 +9,9 @@ Out-of-the-box, the application can connect to both MSSQL, and Mongoose database
 * node.js v9.x.x
   * mssql ODB driver v3.3.0
   * express
+* Database
+  * MSSQL
+  * Mongoose
 
 ## Setup & Configuration
 
@@ -27,4 +30,7 @@ Out-of-the-box, the application can connect to both MSSQL, and Mongoose database
   User<--HTTP--->[NGINX + NODE SERVER]<---ODBC Protocol--->[DATABASE-SERVER]
 
 # References
-* [SE Linix](https://www.tecmint.com/disable-selinux-temporarily-permanently-in-centos-rhel-fedora/)
+* [Installing NGINX on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
+* [Installing node on CentOS v7](https://www.rosehosting.com/blog/how-to-install-node-js-and-npm-on-centos-7)
+* [Enabling/Disabling SE Linux on CentOS v7](https://www.tecmint.com/disable-selinux-temporarily-permanently-in-centos-rhel-fedora/)
+* 
