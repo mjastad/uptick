@@ -47,7 +47,7 @@ Configuring software needed for application deployment(s)...
 
 ```
 
-* Build the node runtime fro the project
+* Build the node runtime for the project - this adds the required libs to the node runtime.
 
 ```
 % npm build /var/www/html/package.json
