@@ -1,9 +1,7 @@
 # Uptick Application
-The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment..
+The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment.  The application supports both MSSQL, and Mongoose databases, with extensions for PGSQL, and MySQL...
 
 ![uptick](./img/uptick.png)
-
-Out-of-the-box, the application can connect to both MSSQL, and Mongoose databases, with extensions to support PGSQL, and MySQL as well...
 
 ## Requirements
 * CentOS v7
