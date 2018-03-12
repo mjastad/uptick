@@ -33,4 +33,4 @@ Out-of-the-box, the application can connect to both MSSQL, and Mongoose database
 * [Installing NGINX on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
 * [Installing node on CentOS v7](https://www.rosehosting.com/blog/how-to-install-node-js-and-npm-on-centos-7)
 * [Enabling/Disabling SE Linux on CentOS v7](https://www.tecmint.com/disable-selinux-temporarily-permanently-in-centos-rhel-fedora/)
-* [Installing Mongoose](https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/)
+* [Installing Mongoose on CentOS v7](https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/)
