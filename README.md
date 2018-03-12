@@ -78,3 +78,10 @@ module.exports = {
 % node /var/www/html/server.js
 
 ```
+
+* Once the server is started, point web-browser to the NGINX SERVER IP Address and click the serach icon to populate and render the data table...
+
+### Supported Functions
+* Search for data in the application
+* Add data in the application
+
