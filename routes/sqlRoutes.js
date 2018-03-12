@@ -9,7 +9,7 @@ var routes = function(){
         .get(function(req, res){
             sql.connect(config.connConfig, function (err) {
                  var request = new sql.Request();
-                 request.query('select * from PARTSCATALOG', function (err, recordset) {
+                 request.query('select * from Parts', function (err, recordset) {
                       res.json(recordset);
 	         });
 	    });

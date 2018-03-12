@@ -32,7 +32,7 @@ function setContent(data, status, jqxhr) {
 }
 
 function createTable(array, tableBody) {
-    var keylist = ['_ID', 'PARTNO', 'PARTDESC', 'PARTAVAIL', 'PARTREV'];
+    var keylist = ['_PartId', 'PartNo', 'PartDescription', 'PartVer', 'PartQty'];
     var table = document.createElement('TABLE');
     var tableBody = document.createElement('TBODY');
     table.border = '1';
