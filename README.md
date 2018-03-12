@@ -40,8 +40,19 @@ Configuring software needed for application deployment(s)...
 
 ## Setup and Configuring Application
 * Install software to /var/www/html
-* Modify IP Address in **js/data,js** file
+* Modify IP Address in **js/data.js** file
 
 ```
      var url = "http://IP-ADDDRESS:3000/api/";
+```
+
+* Start server
+
+```
+     $./server.js
+```
+or
+
+```
+     $ node server.js
 ```
