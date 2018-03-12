@@ -17,7 +17,7 @@ The uptick application is designed to be used as a boiler plate for provisioning
 
 ### Multi Node
 
-  [BROWSER/CLIENT] <--HTTP--> [NGINX-SERVER] <--REST--> [NODE-SERVER] <--ODBC Protocol--> [DATABASE-SERVER]
+  [BROWSER/CLIENT] <--HTTP--> [NGINX-SERVER] <--REST--> [NODE-SERVER] <--ODBC Protocol--> [DB-SERVER]
   
 * Create 2x CentOS v7 Guest VMs
   * Install NGINX on Guest VM #1
@@ -25,7 +25,7 @@ The uptick application is designed to be used as a boiler plate for provisioning
   
 ### Single Node
 
-  [BROWSER/CLIENT] <--HTTP--> [NGINX + NODE SERVER] <--ODBC Protocol--> [DATABASE-SERVER]
+  [BROWSER/CLIENT] <--HTTP--> [NGINX + NODE SERVER] <--ODBC Protocol--> [DB-SERVER]
 
 * Create a CentOS v7 Guest VM
   * Install NGINX 
