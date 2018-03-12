@@ -37,3 +37,10 @@ Configuring software needed for application deployment(s)...
 * [Installing node on CentOS v7](https://www.rosehosting.com/blog/how-to-install-node-js-and-npm-on-centos-7)
 * [Enabling/Disabling SE Linux on CentOS v7](https://www.tecmint.com/disable-selinux-temporarily-permanently-in-centos-rhel-fedora/)
 * [Installing Mongoose on CentOS v7](https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/)
+
+## Setup and Configuring Application
+* Install software to /var/www/html
+* Modify IP Address in **js/data,js** file
+
+... 
+     var url = "http://IP-ADDDRESS:3000/api/";
