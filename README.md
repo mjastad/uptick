@@ -18,18 +18,20 @@ Out-of-the-box, the application can connect to both MSSQL, and Mongoose database
 ## Setup & Configuration
 
 ### Multi Node
+
+  User<--HTTP--->[NGINX-SERVER]<----REST---->[NODE-SERVER]<---ODBC Protocol--->[DATABASE-SERVER]
+  
 * Create 2x CentOS v7 Guest VMs
   * Install NGINX on Guest VM #1
   * Install node.js v9.x on Guest VM #2
   
-  User<--HTTP--->[NGINX-SERVER]<----REST---->[NODE-SERVER]<---ODBC Protocol--->[DATABASE-SERVER]
-  
 ### Single Node
+
+  User<--HTTP--->[NGINX + NODE SERVER]<---ODBC Protocol--->[DATABASE-SERVER]
+
 * Create a CentOS v7 Guest VM
   * Install NGINX 
   * Install node.js
-  
-  User<--HTTP--->[NGINX + NODE SERVER]<---ODBC Protocol--->[DATABASE-SERVER]
 
 ## Infrastructure
 Configuring software needed for application deployment(s)...
