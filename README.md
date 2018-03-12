@@ -50,9 +50,21 @@ Configuring software needed for application deployment(s)...
 * [Installing Mongoose on CentOS v7](https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/)
 
 ## Setup and Configuring Application
-* Install software to /var/www/html
-* Insure files (including full path) have **drwxr..xr..x** (755) privileges.
-* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
+### Install software:
+* Multi Node: Install software to a working directory on the server configured with Node v9.x
+  * *Node v9.x Server*
+    * /routes
+    * /js
+    * /config
+    * server.js
+    * package.json
+  * *NGINX Server*
+    * /var/www/html/index.html
+    * /var/www/html/css
+    * /var/www/html/images
+* **Single Node:** Install software to */var/www/html* on the server where NGINX + Node v9.x is installed
+  * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
+  * Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
 
 ```
 % chmod -R 755 /var/www/html/*
