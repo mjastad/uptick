@@ -50,9 +50,6 @@ Configuring software needed for application deployment(s)...
 
 ```
      $./server.js
-```
 or
-
-```
      $ node server.js
 ```
