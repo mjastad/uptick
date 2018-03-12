@@ -40,12 +40,13 @@ Configuring software needed for application deployment(s)...
 
 ## Setup and Configuring Application
 * Install software to /var/www/html
+* Insure files (including full path) have r..x privileges.
 * Build the node runtime fro the project
 
 ```
 % npm build /var/www/html/package.json
 
-``
+```
 * Modify IP Address in **js/data.js** file
 
 ```
