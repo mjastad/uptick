@@ -43,6 +43,7 @@ Configuring software needed for application deployment(s)...
 ## Setup and Configuring Application
 * Install software to /var/www/html
 * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
+* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
 
 ```
 % chmod -R 755 /var/www/html/*
