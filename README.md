@@ -40,6 +40,12 @@ Configuring software needed for application deployment(s)...
 
 ## Setup and Configuring Application
 * Install software to /var/www/html
+* Build the node runtime fro the project
+
+```
+% npm build /var/www/html/package.json
+
+``
 * Modify IP Address in **js/data.js** file
 
 ```
@@ -62,7 +68,6 @@ module.exports = {
 * Start server
 
 ```
-  $./server.js
-or
-  $ node server.js
+% node /var/www/html/server.js
+
 ```
