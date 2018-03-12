@@ -85,7 +85,7 @@ Configuring software needed for application deployment(s)...
 ```
 var url = "http://IP-ADDDRESS:3000/api/";
 ```
-* Modify MSSQL database connection file
+* Modify MSSQL database connection information in the *config/config.rst* file as follows:
 
 ```
 module.exports = {
