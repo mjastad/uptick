@@ -29,7 +29,7 @@ Out-of-the-box, the application can connect to both MSSQL, and Mongoose database
   
   User<--HTTP--->[NGINX + NODE SERVER]<---ODBC Protocol--->[DATABASE-SERVER]
 
-## Infrastrcuture
+## Infrastructure
 Configuring software needed for application deployment(s)...
 
 ### References
