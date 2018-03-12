@@ -3,8 +3,6 @@ The uptick application is designed to be used as a boiler plate for provisioning
 
 Out-of-the-box, the application can connect to both MSSQL, and Mongoose databases, with extensions to support PGSQL, and MySQL as well...
 
-
-
 ## Requirements
 * CentOS v7
 * NGINX for CentOS v7
@@ -27,3 +25,6 @@ Out-of-the-box, the application can connect to both MSSQL, and Mongoose database
   * Install node.js
   
   User<--HTTP--->[NGINX + NODE SERVER]<---ODBC Protocol--->[DATABASE-SERVER]
+
+# References
+* [SE Linix](https://www.tecmint.com/disable-selinux-temporarily-permanently-in-centos-rhel-fedora/)
