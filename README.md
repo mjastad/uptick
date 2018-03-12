@@ -40,7 +40,13 @@ Configuring software needed for application deployment(s)...
 
 ## Setup and Configuring Application
 * Install software to /var/www/html
-* Insure files (including full path) have r..x privileges.
+* Insure files (including full path) have **drwxr..xr..x** (755) privileges.
+
+```
+% chmod -R 755 /var/www/html/*
+
+```
+
 * Build the node runtime fro the project
 
 ```
