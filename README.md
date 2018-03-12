@@ -10,7 +10,7 @@ Out-of-the-box, the application can connect to both MSSQL, and Mongoose database
   * mssql ODB driver v3.3.0
   * express
 * Database
-  * MSSQL
+  * MSSQL (2008, 2012, 2014, 2016)
   * Mongoose
 
 ## Setup & Configuration
