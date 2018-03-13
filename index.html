@@ -2,56 +2,115 @@
 <html>
     <head>
         <title>Nutanix Services</title>
-        <link rel="stylesheet" href="./css/style.css" />
-        <script type="text/javascript" src="./js/jquery-3.2.1.js"></script>
-        <script type="text/javascript" src="./js/data.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap-grid.min.css">
     </head>
     <body onload="getNodeInfo()">
-        <h1>
-            <b>Uptick - Tech Summit 2018</b>
-            <img width="400" src="./images/Nutanix-neg.png" align="right">
-        </h1>
-        <h3>
-            <b>Application(nginx) Server Info</b><br/>
-            IP Address: 10.21.66.103<br/>
-            Host Name: Centos.localdomain<br/>
-        </h3>
-        <h3 id="nodeInfo"></h3>
-        <div id="content">
-            <div style="width: 100%; overflow: hidden;">
-                <div id="leftbox">
-                    <input type="text" id="searchText">
-                    <select id="searchCriteria">
-                        <option value="make">Make</option>
-                        <option value="model">Model</option>
-                        <option value="year">Year</option>
-                    </select>
-                    <button class="button searchButton" id="searchdata">
-                    <img class="search-glass" width="14" height="14" src="./images/search.png"></button>
-                    <div id="demobox"> 
-                    </div> 
-                </div>
-                <div id="rightbox">
-                    <br/><br/>
-                    <div id="databox"> 
-                        <table align="center" cellpadding="5">
-                            <tr height="10"></tr>
-                            <tr>
-                                <td><font color="#fff">Make</font></td><td><input type="text" id="rankText"></td>
-                            </tr>
-                            <tr>
-                                <td><font color="#fff">Model</font></td><td><input type="text" id="peakText"></td>
-                            </tr>
-                            <tr>
-                                <td><font color="#fff">Year</font></td><td><input type="text" id="elevationText"></td>
-                            </tr>
-                            <tr>
-                                <td></td><td align="right"><button id="addcontent">Add Data</button></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+    	<div class="container-fluid">
+    	
+    		<div class="row">
+    			<div class="col-sm">
+    				<div class="row" id="top-header">
+    					<img src="./images/nutanix-x-2.png">
+    					<div class="col-sm">
+    						Automate All The Things
+    					</div>
+    					<!-- top-header -->
+	   				</div>
+   				</div>
+			</div>
+   			
+   			<div class="row">
+    			<div class="col-sm" id="tagline">
+    			     Tech Summit 2018 - Uptick	
+    			</div>
+    			<!-- tagline -->
+    		</div>
+    	
+	    	<div class="row">
+	    		<div class="col-sm server-info">
+	    			<div style="padding: 5px 0;">Nginx IP address: 10.21.XX.XX<br/> Nginx Host Name: CentOS.localdomain</div>
+	    		</div>
+	    		<div class="col-sm server-info">
+	    			<div id="nodeInfo"></div>
+	    		</div>
+	    	</div>
+	    	
+	    	<div class="row search-group">
+	    			<div class="col-sm" style="display: inline !important;">
+	    				<input id="search-text" class="form-control form-control-inline" placeholder="Enter search criteria">
+    				</div>
+    				<div class="col-sm" style="display: inline !important;">
+	    				<select id="search-criteria" class="form-control form-control-inline">
+	    					<option value="rank">Make</option>
+	    					<option value="peak">Model</option>
+	    					<option value="state">Platform</option>
+	    					<option value="range">Year</option> 
+	    				</select>
+	    			</div>
+	    			<div class="col-sm">
+	    				<button class="btn btn-primary" id="search-data" type="submit">Search</button>
+	    			</div>
+	    	</div>
+	    	
+	    	<div class="row">
+	    		<div class="col-sm">
+		    		<div class="card">
+		    			<div class="card-header">Add Make or Model 
+		    				<span class="show-hide-add-peak">
+		    					[&nbsp;<span class="show-hide-plus">+</span><span class="show-hide-minus">-</span>&nbsp;]
+	    					</span>
+		    			</div>
+		    			<div class="card-body add-peak-body">
+		    				<div class="row">
+		    					<div class="col-sm">
+		    						<input class="form-control" id="rank-text" placeholder="Rank">
+	    						</div>
+	    						<div class="col-sm">
+	    							<input class="form-control" id="peak-text" placeholder="Peak">
+    							</div>
+    							<div class="col-sm">
+    								<input class="form-control" id="elevation-text" placeholder="Elevation">
+   								</div>
+   								<div class="col-sm">
+   									<input class="form-control" id="state-text" placeholder="State">
+ 								</div>
+ 								<div class="col-sm">
+ 									<input class="form-control" id="range-text" placeholder="Range">
+ 								</div>
+ 								<div class="col-sm">
+ 									<button class="btn btn-primary" id="add-data">Add Data</button>
+								</div>
+		    				</div>
+		    			</div>
+		    		</div>
+	    		</div>
+    		</div>
+    		
+    		<div class="row">
+    			<div class="col-sm">
+    				<div class="alert alert-success data-message">
+    					Uptick Data Added Successfully
+    				</div>
+    				<!-- data-message -->
+    			</div>
+    		</div>
+    		
+    		<div class="row">
+    			<div class="col-sm">
+    				<div id="demobox">
+    				</div>
+    				<!-- demobox -->
+    			</div>
+    		</div>
+	    	
+    	</div>
+    	<!-- container-fluid -->
+    	        
+	<script type="text/javascript" src="./js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./js/data.js"></script>
+        
     </body>
 </html>

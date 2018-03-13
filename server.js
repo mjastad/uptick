@@ -20,8 +20,28 @@ app.use('/api/info', infoRouter);
 app.use('/api/sql', sqlRouter);
 
 app.get('/', function (req, res) {
+ 
     res.send('API is functional.');  
+
+    //Connect to Database
+/*
+    sql.connect(config.connConfig, function (err) {
+        if (err) console.log(err);
+        var request = new sql.Request();
+        request.query('select * from PARTSCATALOG', function (err, recordset) {
+            if (err) console.log(err)
+            res.send(recordset);
+        });
+    });
+*/
+
 });
+
+/*
+var server = app.listen(3000, function () {
+    console.log('Server is running..');
+});
+*/
 
 app.listen(3000, function () {
     console.log('Server is running..');
