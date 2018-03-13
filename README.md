@@ -61,6 +61,7 @@ Configuring software needed for application deployment(s)...
     * package.json
   * *NGINX Server*
     * /var/www/html/index.html
+    * /var/www/html/fonts
     * /var/www/html/css
     * /var/www/html/images
     * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
