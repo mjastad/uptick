@@ -55,6 +55,7 @@ Configuring software needed for application deployment(s)...
   * Install software to a working directory on the server configured with Node v9.x
   * *Node v9.x Server*
     * /routes
+    * /models
     * /js
     * /config
     * server.js
