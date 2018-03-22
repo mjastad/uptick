@@ -14,10 +14,10 @@ app.use(function(req, res, next) {
 });
 
 infoRouter = require('./routes/infoRoutes')();
-sqlRouter = require('./routes/sqlRoutes')();
+mssqlRouter = require('./routes/mssqlRoutes')();
 
 app.use('/api/info', infoRouter);
-app.use('/api/sql', sqlRouter);
+app.use('/api/mssql', mssqlRouter);
 
 app.get('/', function (req, res) {
     res.send('API is functional.');  
