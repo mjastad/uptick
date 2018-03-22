@@ -13,7 +13,7 @@ $("document").ready(function() {
 });
 
 function getContent() {
-    $.ajax(url + "sql/",
+    $.ajax(url + "mssql/",
         { success: setContent,
           type: "GET",
           dataType: "json" });
@@ -79,7 +79,7 @@ function searchData() {
     var searchString = document.getElementById("search-text").value;
     var y = document.getElementById("search-criteria");
     var strCrit = y.options[y.selectedIndex].value;
-    $.ajax(url + "sql/?" + strCrit + "=" + searchString.replace(/ /g, '%20'),
+    $.ajax(url + "mssql/?" + strCrit + "=" + searchString.replace(/ /g, '%20'),
         { success: setContent,
           type: "GET",
           dataType: "json" });
