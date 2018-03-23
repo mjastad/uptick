@@ -26,7 +26,7 @@ Currently the app will pull data from a target database and render it to a web-c
 
 ### Multi Node
 
-![uptick](./img/multinode.png)
+![uptick](./img/multinodev1.png)
 
 [BROWSER/CLIENT] <--HTTP--> [NGINX-SERVER] <--REST--> [NODE-SERVER] <--ODBC Protocol--> [DB-SERVER]
   
@@ -36,7 +36,7 @@ Currently the app will pull data from a target database and render it to a web-c
   
 ### Single Node
 
-![uptick](./img/singlenode.png)
+![uptick](./img/singlenodev1.png)
 
 [BROWSER/CLIENT] <--HTTP--> [NGINX + NODE SERVER] <--ODBC Protocol--> [DB-SERVER]
 
