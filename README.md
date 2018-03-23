@@ -26,7 +26,9 @@ Currently the app will pull data from a target database and render it to a web-c
 
 ### Multi Node
 
-  [BROWSER/CLIENT] <--HTTP--> [NGINX-SERVER] <--REST--> [NODE-SERVER] <--ODBC Protocol--> [DB-SERVER]
+![uptick](./img/multinode.png)
+
+[BROWSER/CLIENT] <--HTTP--> [NGINX-SERVER] <--REST--> [NODE-SERVER] <--ODBC Protocol--> [DB-SERVER]
   
 * Create 2x CentOS v7 Guest VMs
   * Install NGINX on Guest VM #1
@@ -34,7 +36,9 @@ Currently the app will pull data from a target database and render it to a web-c
   
 ### Single Node
 
-  [BROWSER/CLIENT] <--HTTP--> [NGINX + NODE SERVER] <--ODBC Protocol--> [DB-SERVER]
+![uptick](./img/singlenode.png)
+
+[BROWSER/CLIENT] <--HTTP--> [NGINX + NODE SERVER] <--ODBC Protocol--> [DB-SERVER]
 
 * Create a CentOS v7 Guest VM
   * Install NGINX 
