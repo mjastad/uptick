@@ -113,7 +113,8 @@ module.exports = {
 * Start server
 
 ```
-% node /var/www/html/server.js
+% cd /var/www/html
+% node server.js
 
 ```
 
