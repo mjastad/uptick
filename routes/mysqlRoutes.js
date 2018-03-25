@@ -16,8 +16,8 @@ var routes = function(){
             mysqlCon.connect(function (err) {
                  mysqlCon.query('select * from Parts', function (err, result, fields) {
                       res.json(result);
-	                });
-	          });
+	         });
+	    });
      });
      return mysqlRouter; 
 };
