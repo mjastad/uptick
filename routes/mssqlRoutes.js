@@ -1,20 +1,20 @@
 var express = require('express');
-var config = require('../config/config');
 var sql = require("mssql");
+var mssqldb = require('../config/mssqlConfig');
 
 var routes = function(){
-    var sqlRouter = express.Router();
+    var mssqlRouter = express.Router();
 
-    sqlRouter.route('/')
+    mssqlRouter.route('/')
         .get(function(req, res){
-            sql.connect(config.connConfig, function (err) {
+            sql.connect(mssqldb.connConfig, function (err) {
                  var request = new sql.Request();
                  request.query('select * from Parts', function (err, recordset) {
                       res.json(recordset);
 	         });
 	    });
      });
-     return sqlRouter; 
+     return mssqlRouter; 
 };
 
 module.exports = routes;

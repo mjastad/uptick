@@ -3,7 +3,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var config = require('./config/config');
+var dbConfig = require('./config/dbConfig');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -13,11 +13,19 @@ app.use(function(req, res, next) {
   next();
 });
 
-infoRouter = require('./routes/infoRoutes')();
-mssqlRouter = require('./routes/mssqlRoutes')();
+infoRouter  = require('./routes/infoRoutes')();
+app.use('/api/info' , infoRouter);
 
-app.use('/api/info', infoRouter);
-app.use('/api/mssql', mssqlRouter);
+if (dbConfig.database.type == 'mssql') {
+  mssqlRouter = require('./routes/mssqlRoutes')();
+  app.use('/api/sql', mssqlRouter);
+} else if (dbConfig.database.type == 'mysql') {
+  mysqlRouter = require('./routes/mysqlRoutes')();
+  app.use('/api/sql', mysqlRouter);
+} else if (dbConfig.database.type == 'mongo') {
+  mongoRouter = require('./routes/mongoRoutes')();
+  app.use('/api/sql', mongoRouter);
+}
 
 app.get('/', function (req, res) {
     res.send('API is functional.');  

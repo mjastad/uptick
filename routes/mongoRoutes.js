@@ -1,13 +1,22 @@
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var express = require('express');
+var mongoClient = require('mongodb').MongoClient;
+var mongoConfig = require('../config/mongoConfig');
+var assert = require('assert');
 
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("mydb");
-  var query = { address: "Park Lane 38" };
-  dbo.collection("customers").find(query).toArray(function(err, result) {
-    if (err) throw err;
-    console.log(result);
-    db.close();
-  });
-});
+var routes = function(){
+    var mongoRouter = express.Router();
+
+    mongoRouter.route('/')
+        .get(function(req, res){
+            mongoClient.connect(mongoConfig.host.url, function (err, db) {
+                 assert.equal(err,null);
+                 var dbo = db.db("Uptick");
+                 dbo.collection("parts").find().toArray(function(err, result) {
+                      res.json(result);
+	         });
+	    });
+     });
+     return mongoRouter; 
+};
+
+module.exports = routes;
