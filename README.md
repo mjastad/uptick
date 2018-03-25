@@ -1,5 +1,5 @@
 # Uptick Application
-The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment.  The application supports both MSSQL, and Mongoose databases, with extensions for PGSQL, and MySQL...
+The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment.  The application supports MSSQL,MySQL, PGSQL, and Mongo databases, with Oracle extensions...
 
 ![uptick](./img/uptick.png)
 
