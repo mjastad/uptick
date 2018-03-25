@@ -18,9 +18,13 @@ Currently the app will pull data from a target database and render it to a web-c
 * node.js v9.x.x
   * mssql ODB driver v3.3.0
   * express
+  * mysql
+  * mongo
 * Database
   * MSSQL (2008, 2012, 2014, 2016)
-  * Mongoose
+  * Mongo
+  * MySQL
+  * PgSQL
 
 ## Setup & Configuration
 
