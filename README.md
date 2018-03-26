@@ -47,7 +47,6 @@ To setup a Multi Node deployment you'll need to perform the following:
   * 1 Core/vCPU
   * VLAN
   * 20GB Storage
-  
 * Install NGINX on Guest VM #1
 * Install Node.js v9.x on Guest VM #2
 * Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references).
@@ -85,17 +84,13 @@ To setup a Single Node deployment you'll need to perform the following:
   * 1 Core/vCPU
   * VLAN
   * 20GB Storage
-  
 * Install NGINX
 * Install Node.js v9.x
-
 * Install all Application Software to */var/www/html* on the server 
 * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
-
 ```
 $ chmod -R 755 /var/www/html/*
 ```
-
 * Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references).
 * Check to make sure Firewalls are configured to allow port resolution. 
 
@@ -105,7 +100,6 @@ Node.js incorporates a package manager called NPM used to install and manage Nod
 NPM can also generate a build-manifest named *package.json* for a specified project, where it can be used later to build a projects runtime.
 
 * Build the Node.js runtime for the Uptick project. This adds the required modules to the node-projects runtime.
-
 ```
 $ cd /var/www/html
 $ npm build package.json
