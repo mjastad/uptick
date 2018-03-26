@@ -114,41 +114,69 @@ $ npm build package.json
 ## Application
 There are several configuration files that need to be edited to mangage data and control-flow between the client and the back-end database.  These files are located in the *config* and *js* directories:
 
-* config/dbConfig.js - Manages the supported database types: *mongo, mysql, mssql, pgsql*.  This binds the proper database router for connecting/communicating to the target database.
-* config/mongoConfig.js - Configures the IP address of the target mongo database server
-* config/mssqlConfig.js - Configures the IP address, port, and authentication credentials for connecting to the target mssql database server.
-* config/mysqlConfig.js - Configures the IP address, port, and authentication credentials for connecting to the target mysql database server.
-* js/data.js - Configures the IP Address for the REST API between the NGINX instance and the Node.js instance.
+* **config/dbConfig.js** - Manages the supported database types: *mongo, mysql, mssql, pgsql*.  This binds the proper database router for connecting/communicating to the target database.
+* **config/mongoConfig.js** - Configures the IP address of the target mongo database server
+* **config/mssqlConfig.js** - Configures the IP address, port, and authentication credentials for connecting to the target mssql database server.
+* **config/mysqlConfig.js** - Configures the IP address, port, and authentication credentials for connecting to the target mysql database server.
+* **js/data.js** - Configures the IP Address for the REST API between the NGINX instance and the Node.js instance.
 
-
-* Modify the *url* rvalue: IP-ADDRESS in the **js/data.js** file to correspond to the IP address where the node *server.js* is running/installed.
+Modify the *url*: IP-ADDRESS in the **js/data.js** file to correspond to the IP address where the node *server.js* is running/installed.
 
 ```
 var url = "http://IP-ADDDRESS:3000/api/";
 ```
 
-* Modify MSSQL database connection information in the *config/config.rst* file as follows:
+## Database
+As previously mentioned the Uptick application supports several databases.  Configuration files to manage the connection will need to be edited with the appropriate configuration data to successfulyl communicate witht he back-end database.
+
+### MS SQL Database
+Modify MSSQL database connection information in the *config/mssqlConfig.rst* file as follows:
 
 ```
 module.exports = {
   connConfig: {
-    server: 'DB SERVER IP-ADDRESS',
+    server: 'DB SERVER IPADDRESS',
     database: 'DATABASE NAME',
     user: 'SQL AGENT (i.e. 'sa')',
-    password: 'DB USER PASSWORD',
-    port: 'DB PORT'
+    password: 'DB USER PASSWORD' (i.e. same as Administrator),
+    port: 'DB PORT' (i.e. 1433 default port)
   }
 };
+```
+
+### MySQL Database
+Modify MySQL database connection information in the *config/mysqlConfig.rst* file as follows:
 
 ```
-* Start server
+var mysqlConnection = mysql.createConnection({
+   host: "DB SERVER IPADDRESS",
+   user: "DB USER",
+   password: "DB USER PASSSWORD",
+   database: "DATABASE NAME"
+});
+```
+
+### MongoDB Database
+Modify the MongoDB database connection information in the *config/mongolConfig.rst* file as follows:
+
+```
+module.exports = {
+  host: {
+    //server url hosting mongoDB 
+    url: 'mongodb://DB SERVER IPADDRESS:PORT' (i.e. 27017 default port)
+  }
+};
+```
+
+## Running the Server
+Start server
+
 ```
 % cd /var/www/html
 % node server.js
-
 ```
 
-* Once the server is started, point web-browser to the NGINX SERVER IP Address and click the serach icon to populate and render the data table...
+Once the server is started, point web-browser to the NGINX SERVER IP Address and click the *Search* button to read data from the database, populate and render the data table in the browser application...
 
 ### Supported Functions
 * Search for data in the application
