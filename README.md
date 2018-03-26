@@ -1,12 +1,6 @@
 # Uptick Application
 The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment.  The application is architected using a Node.js server coupled with NGINX deployed as a proxy to allow for horizontal scaling. The application also provides back-end database support for MSSQL,MySQL, PGSQL, and Mongo.
 
-## Node.js
-Node.js is an open source Javascript runtime environment used to simplify instrumentating server-side and networking applications. The platform runs on Linux, OS X, FreeBSD, and Windows, and its applications are written in JavaScript. Node.js applications can be run at the command line. You can also configured Node to run them as a service, so that the application automatically restarts on reboot or failure - as if you were in a production environment.
-
-## NGINX
-Nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server.  The Uptick applicatioin utilizes NGINX as a reverse proxy.  Nginx can be deployed to serve dynamic HTTP content on the network using FastCGI, SCGI handlers for scripts, WSGI application servers or Phusion Passenger modules, and it can serve as a software load balancer.  Nginx uses an asynchronous event-driven approach to handling requests. Nginx's modular event-driven architecture can provide more predictable performance under high loads.
-
 ![uptick](./img/uptick.png)
 
 ## Requirements
@@ -22,6 +16,13 @@ Nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a
   * Mongo 4.x
   * MySQL 5.x
   * PGSQL 9.x
+  
+### Node.js
+Node.js is an open source Javascript runtime environment used to simplify instrumentating server-side and networking applications. The platform runs on Linux, OS X, FreeBSD, and Windows, and its applications are written in JavaScript. Node.js applications can be run at the command line. You can also configured Node to run them as a service, so that the application automatically restarts on reboot or failure - as if you were in a production environment.
+
+### NGINX
+Nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server.  The Uptick applicatioin utilizes NGINX as a reverse proxy.  Nginx can be deployed to serve dynamic HTTP content on the network using FastCGI, SCGI handlers for scripts, WSGI application servers or Phusion Passenger modules, and it can serve as a software load balancer.  Nginx uses an asynchronous event-driven approach to handling requests. Nginx's modular event-driven architecture can provide more predictable performance under high loads.
+
 
 ### Mongo
 MongoDB is an open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas. 
