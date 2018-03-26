@@ -40,25 +40,67 @@ Node-clusters are good for taking advantage of multi core processors, but when i
 
 ![uptick](./img/multinodev1.png)
 
-[BROWSER/CLIENT] <--HTTP--> [NGINX-SERVER] <--REST--> [NODE-SERVER] <--ODBC Protocol--> [DB-SERVER]
+To setup a Multi Node deployment you'll need to perform the following:
   
-* Create 2x CentOS v7 Guest VMs
-  * Install NGINX on Guest VM #1
-  * Install node.js v9.x on Guest VM #2
+* Create 2 CentOS v7 Guest VMs
+  * 2 vCPU
+  * 1 Core/vCPU
+  * VLAN
+  * 20GB Storage
   
+* Install NGINX on Guest VM #1
+* Install Node.js v9.x on Guest VM #2
+* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
+* Check to make sure Firewalls are configured to allow port resolution. 
+
+Install the Application Software to a working directory on the server configured as follows:
+* *Node v9.x Server*
+  * /routes
+  * /models
+  * /js
+  * /config
+  * server.js
+  * package.json
+  * Insure files (including full path) have drwxr..xr..x (755) privileges.
+* *NGINX Server*
+  * /var/www/html/index.html
+  * /var/www/html/fonts
+  * /var/www/html/css
+  * /var/www/html/images
+  * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
+  
+```
+$ chmod -R 755 /var/www/html/*
+
+```
+
 ### Single Node
 Single node deployments are simple and easy to manage.  In most cases, multiple copies of a node server are required to deliver performance under heavy workloads. Single node servers can be configured, containerized, and scaled out as needed to support peak operations. 
 
 ![uptick](./img/singlenodev1.png)
 
-[BROWSER/CLIENT] <--HTTP--> [NGINX + NODE SERVER] <--ODBC Protocol--> [DB-SERVER]
+To setup a Single Node deployment you'll need to perform the following:
+  
+* Create 1 CentOS v7 Guest VMs
+  * 2 vCPU
+  * 1 Core/vCPU
+  * VLAN
+  * 20GB Storage
+  
+* Install NGINX
+* Install Node.js v9.x
 
-* Create a CentOS v7 Guest VM
-  * Install NGINX 
-  * Install node.js
+* Install Application Software to */var/www/html* on the server 
+* Insure files (including full path) have **drwxr..xr..x** (755) privileges.
 
-## Infrastructure
-Configuring software needed for application deployment(s)...
+```
+$ chmod -R 755 /var/www/html/*
+
+```
+
+* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
+* Check to make sure Firewalls are configured to allow port resolution. 
+
 
 ### References
 * [Installing NGINX on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
@@ -66,33 +108,7 @@ Configuring software needed for application deployment(s)...
 * [Enabling/Disabling SE Linux on CentOS v7](https://www.tecmint.com/disable-selinux-temporarily-permanently-in-centos-rhel-fedora/)
 * [Installing Mongoose on CentOS v7](https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/)
 
-## Setup and Configuring Application
-### Install software:
-* Multi Node: 
-  * Install software to a working directory on the server configured with Node v9.x
-  * *Node v9.x Server*
-    * /routes
-    * /models
-    * /js
-    * /config
-    * server.js
-    * package.json
-    * Insure files (including full path) have drwxr..xr..x (755) privileges.
-  * *NGINX Server*
-    * /var/www/html/index.html
-    * /var/www/html/fonts
-    * /var/www/html/css
-    * /var/www/html/images
-    * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
-* **Single Node:** 
-  * Install software to */var/www/html* on the server where NGINX + Node v9.x is installed
-  * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
-  * Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
 
-```
-% chmod -R 755 /var/www/html/*
-
-```
 
 * Build the node runtime for the project - this adds the required libs to the node runtime.
 
