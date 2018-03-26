@@ -201,6 +201,9 @@ Once the server is started, point web-browser to the NGINX SERVER IP Address and
 * [Installing node on CentOS v7](https://www.rosehosting.com/blog/how-to-install-node-js-and-npm-on-centos-7)
 * [Enabling/Disabling SE Linux on CentOS v7](https://www.tecmint.com/disable-selinux-temporarily-permanently-in-centos-rhel-fedora/)
 * [Installing Mongoose on CentOS v7](https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/)
+* [Installing MongoDB on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-centos-7)
+* [Import & Exporting MySQL Databases](https://www.digitalocean.com/community/tutorials/how-to-import-and-export-databases-in-mysql-or-mariadb)
+* 
 
 
 
