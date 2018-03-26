@@ -50,7 +50,7 @@ To setup a Multi Node deployment you'll need to perform the following:
   
 * Install NGINX on Guest VM #1
 * Install Node.js v9.x on Guest VM #2
-* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
+* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references).
 * Check to make sure Firewalls are configured to allow port resolution. 
 
 Install the Application Software to a working directory on the server configured as follows:
@@ -80,7 +80,7 @@ Single node deployments are simple and easy to manage.  In most cases, multiple 
 
 To setup a Single Node deployment you'll need to perform the following:
   
-* Create 1 CentOS v7 Guest VMs
+* Create 1 CentOS v7 Guest VM
   * 2 vCPU
   * 1 Core/vCPU
   * VLAN
@@ -89,14 +89,14 @@ To setup a Single Node deployment you'll need to perform the following:
 * Install NGINX
 * Install Node.js v9.x
 
-* Install Application Software to */var/www/html* on the server 
+* Install all Application Software to */var/www/html* on the server 
 * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
 
 ```
 $ chmod -R 755 /var/www/html/*
 ```
 
-* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
+* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references).
 * Check to make sure Firewalls are configured to allow port resolution. 
 
 
