@@ -129,6 +129,20 @@ var url = "http://IP-ADDDRESS:3000/api/";
 ## Database
 As previously mentioned the Uptick application supports several databases.  Configuration files to manage the connection will need to be edited with the appropriate configuration data to successfulyl communicate witht he back-end database.
 
+### Database Type
+Modify Database Type configuration in the *config/dbConfig.rst* file as follows:
+
+```
+module.exports = {
+  database: {
+    //valid databases types: mysql, mssql, mongo
+    type: 'mongo'
+  }
+};
+```
+
+The supported database types are: *mongo, mysql, mssql, and pgsql*.
+
 ### MS SQL Database
 Modify MSSQL database connection information in the *config/mssqlConfig.rst* file as follows:
 
