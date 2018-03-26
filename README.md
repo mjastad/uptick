@@ -52,6 +52,8 @@ Node-cluster is good for taking advantage of multi core processors, but when it 
   
 ### Single Node
 
+Single node deployments are typically simple and easy to manage.  In most cases, multiple copies of a node server are required to deliver the performance needed by web applications under load.  That said, a single node server can be created and containerized, and scaled up/down as needed to meet peak workload demands. 
+
 ![uptick](./img/singlenodev1.png)
 
 [BROWSER/CLIENT] <--HTTP--> [NGINX + NODE SERVER] <--ODBC Protocol--> [DB-SERVER]
