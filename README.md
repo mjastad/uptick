@@ -71,7 +71,6 @@ Install the Application Software to a working directory on the server configured
   
 ```
 $ chmod -R 755 /var/www/html/*
-
 ```
 
 ### Single Node
@@ -95,7 +94,6 @@ To setup a Single Node deployment you'll need to perform the following:
 
 ```
 $ chmod -R 755 /var/www/html/*
-
 ```
 
 * Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references above).
@@ -136,7 +134,6 @@ module.exports = {
 
 ```
 * Start server
-
 ```
 % cd /var/www/html
 % node server.js
