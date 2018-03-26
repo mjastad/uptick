@@ -1,34 +1,30 @@
 # Uptick Application
-The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment.  The application supports MSSQL,MySQL, PGSQL, and Mongo databases, with Oracle extensions...
+The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment.  The application is architected using a Node.js server coupled with NGINX deployed as a proxy to allow for horizontal scaling. The application also provides back-end database support including; MSSQL,MySQL, PGSQL, and Mongo.
+
+## Node.js
+Node.js is an open source Javascript runtime environment used to simplify instrumentating server-side and networking applications. The platform runs on Linux, OS X, FreeBSD, and Windows, and its applications are written in JavaScript. Node.js applications can be run at the command line. You can also configured Node to run them as a service, so that the application automatically restarts on reboot or failure - as if you were in a production environment.
 
 ![uptick](./img/uptick.png)
-
-## Application State
-Currently the app will pull data from a target database and render it to a web-client.  Instrumentation is in place for SE's to add their own development for:
-
-* Add/Search Data by:
-  * ***Make***
-  * ***Model***
-  * ***Year***
-* Multiple Database(s)
 
 ## Requirements
 * CentOS v7
 * NGINX for CentOS v7
 * node.js v9.x.x
   * mssql ODB driver v3.3.0
-  * express
-  * mysql
-  * mongo
-* Database
+  * express 4.16.2
+  * mysql 2.15.0
+  * mongo 0.1.0
+* Database Instances
   * MSSQL (2008, 2012, 2014, 2016)
-  * Mongo
-  * MySQL
-  * PgSQL
+  * Mongo 4.x
+  * MySQL 7.x
+  * PGSQL 9.x
 
 ## Setup & Configuration
 
 ### Multi Node
+
+Node-cluster is good for taking advantage of multi core processors, but when it comes to horizontal scaling(adding more virtual machines), you'll need to use load balancers or reverse proxy. For reverse proxy you can use any web server like Apache or nginx. In this architecture we use nginx.
 
 ![uptick](./img/multinodev1.png)
 
