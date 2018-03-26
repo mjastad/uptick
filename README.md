@@ -13,7 +13,7 @@ Nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a
 ## Requirements
 * CentOS v7
 * NGINX for CentOS v7
-* node.js v9.x.x
+* Node.js v9.x.x
   * mssql ODB driver v3.3.0
   * express 4.16.2
   * mysql 2.15.0
