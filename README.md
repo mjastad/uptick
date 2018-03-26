@@ -1,11 +1,10 @@
 # Uptick Application
-The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment.  The application is architected using a Node.js server coupled with NGINX deployed as a proxy to allow for horizontal scaling. The application also provides back-end database support including; MSSQL,MySQL, PGSQL, and Mongo.
+The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment.  The application is architected using a Node.js server coupled with NGINX deployed as a proxy to allow for horizontal scaling. The application also provides back-end database support for MSSQL,MySQL, PGSQL, and Mongo.
 
 ## Node.js
 Node.js is an open source Javascript runtime environment used to simplify instrumentating server-side and networking applications. The platform runs on Linux, OS X, FreeBSD, and Windows, and its applications are written in JavaScript. Node.js applications can be run at the command line. You can also configured Node to run them as a service, so that the application automatically restarts on reboot or failure - as if you were in a production environment.
 
 ## NGINX
-
 Nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server.  The Uptick applicatioin utilizes NGINX as a reverse proxy.  Nginx can be deployed to serve dynamic HTTP content on the network using FastCGI, SCGI handlers for scripts, WSGI application servers or Phusion Passenger modules, and it can serve as a software load balancer.  Nginx uses an asynchronous event-driven approach to handling requests. Nginx's modular event-driven architecture can provide more predictable performance under high loads.
 
 ![uptick](./img/uptick.png)
@@ -25,22 +24,18 @@ Nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a
   * PGSQL 9.x
 
 ### Mongo
-
-MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas. 
+MongoDB is an open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas. 
 
 ### MySQL
-
-MySQL is an open-source relational database management system (RDBMS).  MySQL is written in C and C++. Its SQL parser is written in yacc, but it uses a home-brewed lexical analyzer.
+MySQL is an open-source relational database management system (RDBMS).  MySQL's core engine is written in C and C++. coupled with a yacc parser and proprietary lexical analyzer for supporting SQL.
 
 ### PostgreSQL
-
-PostgreSQL, simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. As a database server, its primary functions are to store data securely and return that data in response to requests from other software applications.
+PostgreSQL is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. As a database server, its primary functions are to store data securely and return that data in response to requests from other software applications.
 
 ## Setup & Configuration
 
 ### Multi Node
-
-Node-cluster is good for taking advantage of multi core processors, but when it comes to horizontal scaling(adding more virtual machines), you'll need to use load balancers or reverse proxy. For reverse proxy you can use any web server like Apache or nginx. In this architecture we use nginx.
+Node-clusters are good for taking advantage of multi core processors, but when it comes to horizontal scaling(adding more virtual machines), you'll need to use load balancers or reverse proxy. In most cases application developers can use any web server such as Apache or MGINX as a reverse proxy. for this application architecture Uptick uses NGINX.
 
 ![uptick](./img/multinodev1.png)
 
@@ -51,8 +46,7 @@ Node-cluster is good for taking advantage of multi core processors, but when it 
   * Install node.js v9.x on Guest VM #2
   
 ### Single Node
-
-Single node deployments are typically simple and easy to manage.  In most cases, multiple copies of a node server are required to deliver the performance needed by web applications under load.  That said, a single node server can be created and containerized, and scaled up/down as needed to meet peak workload demands. 
+Single node deployments are simple and easy to manage.  In most cases, multiple copies of a node server are required to deliver performance under heavy workloads. Single node servers can be configured, containerized, and scaled out as needed to support peak operations. 
 
 ![uptick](./img/singlenodev1.png)
 
