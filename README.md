@@ -99,26 +99,34 @@ $ chmod -R 755 /var/www/html/*
 * Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references).
 * Check to make sure Firewalls are configured to allow port resolution. 
 
+## Node Package(s)
+Node.js incorporates a package manager called NPM used to install and manage Node.js modules within the node.js enviornment.  NPM is similar to *yum* or *apt-get* on CentOS or Ubuntu repectively.  Node.js modules can be scoped globally or to specific projects for better isolation. change-management, and version control. When NPM installs modules pinned for a given project, it creates a folder named *"node_modules"*, where modules will be placed. All modules installed in the future for a given project will be placed in this folder.
 
-### References
-* [Installing NGINX on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
-* [Installing node on CentOS v7](https://www.rosehosting.com/blog/how-to-install-node-js-and-npm-on-centos-7)
-* [Enabling/Disabling SE Linux on CentOS v7](https://www.tecmint.com/disable-selinux-temporarily-permanently-in-centos-rhel-fedora/)
-* [Installing Mongoose on CentOS v7](https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/)
+NPM can also generate a build-manifest named *package.json* for a specified project, where it can be used later to build a projects runtime.
 
-
-
-* Build the node runtime for the project - this adds the required libs to the node runtime.
+* Build the Node.js runtime for the Uptick project. This adds the required modules to the node-projects runtime.
 
 ```
-% npm build [/node software directory]/package.json
-
+$ cd /var/www/html
+$ npm build package.json
 ```
-* Modify IP Address in **js/data.js** file
+
+## Application
+There are several configuration files that need to be edited to mangage data and control-flow between the client and the back-end database.  These files are located in the *config* and *js* directories:
+
+* config/dbConfig.js - Manages the supported database types: *mongo, mysql, mssql, pgsql*.  This binds the proper database router for connecting/communicating to the target database.
+* config/mongoConfig.js - Configures the IP address of the target mongo database server
+* config/mssqlConfig.js - Configures the IP address, port, and authentication credentials for connecting to the target mssql database server.
+* config/mysqlConfig.js - Configures the IP address, port, and authentication credentials for connecting to the target mysql database server.
+* js/data.js - Configures the IP Address for the REST API between the NGINX instance and the Node.js instance.
+
+
+* Modify the *url* rvalue: IP-ADDRESS in the **js/data.js** file to correspond to the IP address where the node *server.js* is running/installed.
 
 ```
 var url = "http://IP-ADDDRESS:3000/api/";
 ```
+
 * Modify MSSQL database connection information in the *config/config.rst* file as follows:
 
 ```
@@ -145,4 +153,12 @@ module.exports = {
 ### Supported Functions
 * Search for data in the application
 * Add data in the application
+
+### References
+* [Installing NGINX on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
+* [Installing node on CentOS v7](https://www.rosehosting.com/blog/how-to-install-node-js-and-npm-on-centos-7)
+* [Enabling/Disabling SE Linux on CentOS v7](https://www.tecmint.com/disable-selinux-temporarily-permanently-in-centos-rhel-fedora/)
+* [Installing Mongoose on CentOS v7](https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/)
+
+
 
