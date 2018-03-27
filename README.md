@@ -55,20 +55,25 @@ To setup a Multi Node deployment you'll need to perform the following:
 
 Install the Application Software to a working directory on the servers as follows:
 
-Create a working directory for you Uptick application software
+Create a working directory for you Uptick application software on the Node.js Server
 ```
-$ mkdir /home/{username}/projects/uptick
+$ mkdir /var/www/projects/uptick
 ```
 
 Change to the directory just created and use *git* to capture the *Uptick* repository distribution (application + database files) to the Node v9.x Server
 ```
-$ git clone 
+$ cd /var/www/projects/uptick
+$ git clone https://github.com/mjastad/uptick.git
 ```
+
+Distribute the files acros the servers as indicated below:
+
 * *Node v9.x Server*
   * /routes
   * /models
   * /js
   * /config
+  * /databases
   * server.js
   * package.json
   * Insure files (including full path) have drwxr..xr..x (755) privileges.
@@ -97,7 +102,7 @@ To setup a Single Node deployment you'll need to perform the following:
   * 20GB Storage
 * Install NGINX
 * Install Node.js v9.x
-* Install all Application Software to */var/www/html* on the server 
+* Install all Application Software to */var/www/html* on the server (see steps below).
 * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
 ```
 $ chmod -R 755 /var/www/html/*
@@ -105,12 +110,28 @@ $ chmod -R 755 /var/www/html/*
 * Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references).
 * Check to make sure Firewalls are configured to allow port resolution. 
 
+Install the Application Software to the working directory */var/www/html* on the **NGINX + Node.js** server as follows:
+
+Change to the directory */var/www/html* and use *git* to capture the *Uptick* repository distribution (application + database files) to the Node v9.x Server
+```
+$ cd /var/www/html/
+$ git clone https://github.com/mjastad/uptick.git
+```
+
 ## Node Package(s)
 Node.js incorporates a package manager called NPM used to install and manage Node.js modules within the node.js enviornment.  NPM is similar to *yum* or *apt-get* on CentOS or Ubuntu repectively.  Node.js modules can be scoped globally or to specific projects for better isolation. change-management, and version control. When NPM installs modules pinned for a given project, it creates a folder named *"node_modules"*, where modules will be placed. All modules installed in the future for a given project will be placed in this folder.
 
 NPM can also generate a build-manifest named *package.json* for a specified project, where it can be used later to build a projects runtime.  The Uptick application uses a *package.json* to recreate the applications runtime dependancies and is included as part of the application software. 
 
 * Build the Node.js runtime for the Uptick project. The *package.json* should be in the root directory where you installed the application software (i.e. /var/www/html/).  Running the command below will build the Uptick Application's runtime.
+
+#### Multi Node
+```
+$ cd /var/www/projects/uptick
+$ npm build package.json
+```
+
+#### Single Node
 ```
 $ cd /var/www/html
 $ npm build package.json
