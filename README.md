@@ -270,9 +270,21 @@ Configure a MySQL database instance on a CentOS v7 Guest VM.  Insure that the da
 
 Download the MySQL version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mysql
 
-Create diretory */uptick/database/mysql*, and copy the the *uptick.database.sql* file to the new diretory.
+**NOTE:** Using *git clone* is the proper way to download the database instances... 
 
-Import the *Uptick* database directory using file-redirection.
+Create diretory */uptick/database/mysql*, and copy the the *uptick.database.sql* file to the new diretory.
+```
+$ mkdir /uptick/database/mysql
+$ cd /uptick/database/mysql        <------ copy uptick.database.sql to this directory
+```
+
+Start a *mysql* shell session and create a the *Uptick* database in MySQL
+```
+$ mysql -u <mysql_username> -p<mysql_user_pasword>
+mysql> create database Uptick;
+```
+
+Exit mysql shell session and import the *Uptick* database file: *uptick.database.sql* using file-redirection.
 ```
 $ mysql -u username -p Uptick < uptick.database.sql
 ```
@@ -281,8 +293,6 @@ Restart MySQL
 ```
 $ sudo systemctl restart mysqld
 ```
-
-
 
 ### PostgreSSQL
 Desribe how to setup and configure MySQL
