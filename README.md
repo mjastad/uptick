@@ -294,11 +294,11 @@ Restart MySQL
 $ sudo systemctl restart mysqld
 ```
 
-### PostgreSSQL
-Desribe how to setup and configure MySQL
-
 ### MS SQL Server
-Desribe how to setup and configure MySQL.
+The MS SQL Server database instance is created from the *NTNX xtract* process.
+
+### PostgreSSQL
+PostgreSQL support is currently under development. 
 
 ### References
 * [Installing NGINX on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
