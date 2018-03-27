@@ -222,6 +222,21 @@ Once the server is started, point web-browser to the NGINX SERVER IP Address and
 * Search for data in the application
 * Add data in the application
 
+## Database Setup & Configuration
+This section describes how to setup and configure an Uptick backend database.  The database should match the Uptick Applications configuration (i.e database-type, database-router). 
+
+### MongoDB
+Describe how to setup and configure MongoDB
+
+### MySQL
+Desribe how to setup and configure MySQL
+
+### PostgreSSQL
+Desribe how to setup and configure MySQL
+
+## MS SQL Server
+Desribe how to setup and configure MySQL.
+
 ### References
 * [Installing NGINX on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
 * [Installing node on CentOS v7](https://www.rosehosting.com/blog/how-to-install-node-js-and-npm-on-centos-7)
