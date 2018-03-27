@@ -225,6 +225,8 @@ Once the server is started, point web-browser to the NGINX SERVER IP Address and
 ## Database Setup & Configuration
 This section describes how to setup and configure an Uptick backend database.  The database should match the Uptick Applications configuration (i.e database-type, database-router). 
 
+The *Uptick* database images are in the */databases* folder.  
+
 ### MongoDB
 Describe how to setup and configure MongoDB
 
@@ -234,7 +236,7 @@ Desribe how to setup and configure MySQL
 ### PostgreSSQL
 Desribe how to setup and configure MySQL
 
-## MS SQL Server
+### MS SQL Server
 Desribe how to setup and configure MySQL.
 
 ### References
