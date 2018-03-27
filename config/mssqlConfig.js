@@ -1,9 +1,9 @@
 module.exports = {
   connConfig: {
-    server: 'DB SERVER IPADDRESS',
-    database: 'DATABASE NAME',
-    user: 'DB USER',
-    password: 'DB USER PASSWORD',
+    server: 'DB_SERVER_IPADDRESS',
+    database: 'DATABASE_NAME',
+    user: 'DB_USER',
+    password: 'DB_USER_PASSWORD',
     port: PORT 
   },
 };
