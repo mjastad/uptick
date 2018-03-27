@@ -228,10 +228,61 @@ This section describes how to setup and configure an Uptick backend database.  T
 The *Uptick* database images are in the */databases* folder.  
 
 ### MongoDB
-Describe how to setup and configure MongoDB
+Configure a MongoDB database instance on a CentOS v7 Guest VM.  Insure that the database is accessible from remote clients.
+
+Download the MongoDB version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mongo
+
+Create diretory */uptick/database/mongo/*, copy the the *uptick.mongodb.data.tar* file to the new diretory.
+```
+$ mkdir /uptick/database/mongo/
+$ cd /uptick/database/mongo/
+```
+
+Extract the tar file
+
+```
+$ tar -xvf uptick.mongodb.data.tar
+```
+
+Import the *Uptick* database directory using the restore command.
+```
+$ cd /uptick/database/mongo/uptick.mongodb.data
+$ mongorestore -d Uptick Uptick
+```
+
+Restart mongodb
+```
+$ sudo systemctl restart mongod
+```
+
+Test the database by starting a mongoDB shell
+```
+$ mongo
+```
+
+Display all the *documents* in the *parts* collection by running the following command
+```
+> db.parts.find();
+```
 
 ### MySQL
-Desribe how to setup and configure MySQL
+Configure a MySQL database instance on a CentOS v7 Guest VM.  Insure that the database is accessible by remote clients.
+
+Download the MySQL version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mysql
+
+Create diretory */uptick/database/mysql*, and copy the the *uptick.database.sql* file to the new diretory.
+
+Import the *Uptick* database directory using file-redirection.
+```
+$ mysql -u username -p Uptick < uptick.database.sql
+```
+
+Restart MySQL
+```
+$ sudo systemctl restart mysqld
+```
+
+
 
 ### PostgreSSQL
 Desribe how to setup and configure MySQL
