@@ -149,7 +149,7 @@ There are several configuration files that need to be edited to mangage data and
 Modify the *url*: IP-ADDRESS in the **js/data.js** file to correspond to the IP address where the node *server.js* is running/installed.
 
 ```
-var url = "http://IP-ADDDRESS:3000/api/";
+var url = "http://NODE_SERVER_IP_ADDDRESS:3000/api/";
 ```
 
 ## Database
