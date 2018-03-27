@@ -5,6 +5,7 @@ The uptick application is designed to be used as a boiler plate for provisioning
 
 ## Requirements
 * CentOS v7
+* Git
 * NGINX for CentOS v7
 * Node.js v9.x.x
   * mssql ODB driver v3.3.0
@@ -52,7 +53,17 @@ To setup a Multi Node deployment you'll need to perform the following:
 * Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references).
 * Check to make sure Firewalls are configured to allow port resolution. 
 
-Install the Application Software to a working directory on the server configured as follows:
+Install the Application Software to a working directory on the servers as follows:
+
+Create a working directory for you Uptick application software
+```
+$ mkdir /home/{username}/projects/uptick
+```
+
+Change to the directory just created and use *git* to capture the *Uptick* repository distribution (application + database files) to the Node v9.x Server
+```
+$ git clone 
+```
 * *Node v9.x Server*
   * /routes
   * /models
@@ -97,9 +108,9 @@ $ chmod -R 755 /var/www/html/*
 ## Node Package(s)
 Node.js incorporates a package manager called NPM used to install and manage Node.js modules within the node.js enviornment.  NPM is similar to *yum* or *apt-get* on CentOS or Ubuntu repectively.  Node.js modules can be scoped globally or to specific projects for better isolation. change-management, and version control. When NPM installs modules pinned for a given project, it creates a folder named *"node_modules"*, where modules will be placed. All modules installed in the future for a given project will be placed in this folder.
 
-NPM can also generate a build-manifest named *package.json* for a specified project, where it can be used later to build a projects runtime.
+NPM can also generate a build-manifest named *package.json* for a specified project, where it can be used later to build a projects runtime.  The Uptick application uses a *package.json* to recreate the applications runtime dependancies and is included as part of the application software. 
 
-* Build the Node.js runtime for the Uptick project. This adds the required modules to the node-projects runtime.
+* Build the Node.js runtime for the Uptick project. The *package.json* should be in the root directory where you installed the application software (i.e. /var/www/html/).  Running the command below will build the Uptick Application's runtime.
 ```
 $ cd /var/www/html
 $ npm build package.json
