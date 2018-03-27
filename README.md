@@ -60,13 +60,13 @@ Create a working directory for you Uptick application software on the Node.js Se
 $ mkdir /var/www/projects/uptick
 ```
 
-Change to the directory just created and use *git* to capture the *Uptick* repository distribution (application + database files) to the Node v9.x Server
+Change to the directory just created and use *git* to clone the *Uptick* repository (application + database files) to the Node v9.x Server
 ```
 $ cd /var/www/projects/uptick
 $ git clone https://github.com/mjastad/uptick.git
 ```
 
-Distribute the files acros the servers as indicated below:
+Distribute the files across the servers as indicated below:
 
 * *Node v9.x Server*
   * /routes
