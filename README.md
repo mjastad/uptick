@@ -91,7 +91,7 @@ $ chmod -R 755 /var/www/html/*
 ### Single Node
 Single node deployments are simple and easy to manage.  In most cases, multiple copies of a node server are required to deliver performance under heavy workloads. Single node servers can be configured, containerized, and scaled out as needed to support peak operations. 
 
-![uptick](./img/singlenodev1.png)
+![uptick](./img/singlenodev2.png)
 
 To setup a Single Node deployment you'll need to perform the following:
   
