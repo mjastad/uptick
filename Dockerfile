@@ -1,13 +1,9 @@
 
 
-RUN apt-get install -y software-properties-common python
-RUN add-apt-repository ppa:chris-lea/node.js
-RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y nodejs
+RUN apt-get install -y nginx
 
-RUN mkdir /var/www
+RUN cd /var/www/html/
+RUN git clone https://github.com/mjastad/uptick.git
 
-ADD app.js /var/www/app.js
-
-CMD ["/usr/bin/node", "/var/www/app.js"] 
