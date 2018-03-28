@@ -35,7 +35,7 @@ MongoDB is an open-source cross-platform document-oriented database program. Cla
 ### MySQL
 MySQL is an open-source relational database management system (RDBMS).  MySQL's core engine is written in C and C++. coupled with a yacc parser and proprietary lexical analyzer for supporting SQL.
 
-### PostgreSQL
+### PostgreSQL (NOT SUPPORTED IN THIS VERSION)
 PostgreSQL is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. As a database server, its primary functions are to store data securely and return that data in response to requests from other software applications.
 
 ## Setup & Configuration
