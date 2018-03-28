@@ -292,23 +292,31 @@ Once MySQL is installed, Set the root user password:
 $ mysqladmin -u root password nutanix/4u
 ```
 
-Login to the mysql server and enter the new password when prompted.
+Login to the mysql server and enter the new password when prompted;
 ```
 $ mysql -u root -p
 ```
 
-Create a remote user account and grant them access from any (%) host.
+Create an empty database:
 ```
-mysql> CREATE USER 'root'@'ip-address';                                           
+mysql> create database Uptick;     <------- creates an empty database
+
+Output
+Query OK, 1 row affected (0.00 sec)
+```
+
+Grant a remote *root* user access and specify from any host using (%) as show below:
+```                                         
 mysql> GRANT ALL ON Uptick.* TO 'root'@'%' IDENTIFIED BY ‘nutanix/4u';   
 mysql> FLUSH PRIVILEGES;
 ```
-**NOTE:** The user created above should be the *root* user and *password* from where you're running the Node Server.
+**NOTE:** The user created above should be *root* user and *password* from where you're running the Node Server.
 
-**OPTIONAL:** permit remote user access from a specified host for more security.
+**OPTIONAL:** Restrict remote user access from a specified host to harden security.
 ```
 mysql> GRANT ALL ON Uptick.* TO 'root'@'remotehost-ipaddress' IDENTIFIED BY ‘nutanix/4u'; 
 ```
+
 Verify or show a listing of new created users:
 ```
 mysql> select Host, User, Password from mysql.user;
@@ -324,35 +332,49 @@ mysql> select Host, User, Password from mysql.user;
 6 rows in set (0.00 sec)
 ```
 
+Exit MySQL by pressing <CNTRL-D>. 
+
 Download the MySQL version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mysql
 
 **NOTE:** Using *git clone* is the proper way to download the database instances... 
 
-Create diretory */uptick/database/mysql*,  and copy the *uptick.database.sql* file to the new directory.
+Create diretory */uptick/database/mysql*,  and copy the *../databases/mysql/uptick.database.sql* file to the new directory.
 ```
 $ mkdir /uptick/database/mysql
 $ cd /uptick/database/mysql        <------ copy uptick.database.sql to this directory
 ```
 
-Start a *mysql* shell session as *root*
-```
-$ mysql -u root -p                 <------- user will be prompted for password (i.e. nutnaix/4u)
-```
-
-Create an empty database
-```
-mysql> create database Uptick;     <------- creates an empty database
-
-Output
-Query OK, 1 row affected (0.00 sec)
-```
-
-Exit *mysql* shell session by pressing <CNTRL-D>.  
-
 Using the command-line, import the *Uptick* database file: *uptick.database.sql* using file-redirection.
 ```
 $ mysql -u username -p Uptick < uptick.database.sql
 ```
+
+Login to the mysql server and enter the new password when prompted;
+```
+$ mysql -u root -p
+```
+
+Verify the database:
+```
+mysql> use Uptick;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_Uptick |
++------------------+
+| Make             |
+| ModelToPart      |
+| Parts            |
++------------------+
+3 rows in set (0.00 sec)
+
+mysql>
+```
+
+Exit MySQL by pressing <CNTRL-D>. 
 
 Restart MySQL
 ```
