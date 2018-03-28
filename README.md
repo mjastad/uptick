@@ -165,7 +165,7 @@ var url = "http://NODE_SERVER_IP_ADDDRESS:3000/api/";
 As previously mentioned the Uptick application supports several databases.  Configuration files to manage the connection will need to be edited with the appropriate configuration data to successfully communicate with he back-end database.
 
 ### Database Type
-Modify Database Type configuration in the *config/dbConfig.rst* file as follows:
+Modify Database Type configuration in the *config/dbConfig.js* file as follows:
 
 ```
 module.exports = {
