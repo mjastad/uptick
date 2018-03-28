@@ -165,7 +165,7 @@ var url = "http://NODE_SERVER_IP_ADDDRESS:3000/api/";
 As previously mentioned the Uptick application supports several databases.  Configuration files to manage the connection will need to be edited with the appropriate configuration data to successfully communicate with he back-end database.
 
 ### Database Type
-Modify Database Type configuration in the *config/dbConfig.rst* file as follows:
+Modify Database Type configuration in the *config/dbConfig.js* file as follows:
 
 ```
 module.exports = {
@@ -179,7 +179,7 @@ module.exports = {
 The supported database types are: *mongo, mysql, mssql, and pgsql*.
 
 ### MS SQL Database
-Modify MSSQL database connection information in the *config/mssqlConfig.rst* file as follows:
+Modify MSSQL database connection information in the *config/mssqlConfig.js* file as follows:
 
 ```
 module.exports = {
@@ -194,7 +194,7 @@ module.exports = {
 ```
 
 ### MySQL Database
-Modify MySQL database connection information in the *config/mysqlConfig.rst* file as follows:
+Modify MySQL database connection information in the *config/mysqlConfig.js* file as follows:
 
 ```
 var mysqlConnection = mysql.createConnection({
@@ -206,7 +206,7 @@ var mysqlConnection = mysql.createConnection({
 ```
 
 ### MongoDB Database
-Modify the MongoDB database connection information in the *config/mongolConfig.rst* file as follows:
+Modify the MongoDB database connection information in the *config/mongolConfig.js* file as follows:
 
 ```
 module.exports = {
