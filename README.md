@@ -277,9 +277,10 @@ Create a rmote user account and grant them access
 ```
 mysql> CREATE USER 'user'@'ip-address';                                           <----------- creates a remote-user account
 mysql> GRANT ALL ON Uptick.* TO 'root'@'ip-address' IDENTIFIED BY ‘password';     <----------- grant remote user access
+mysql> FLUSH PRIVILEGES;
 ```
 
-Optional: permit remote user access from any host 
+**OPTIONAL:** permit remote user access from any host 
 ```
 mysql> GRANT ALL ON Uptick.* TO 'root'@'%' IDENTIFIED BY ‘password';              <----------- grant remote user access from any host
 ```
@@ -297,7 +298,7 @@ $ cd /uptick/database/mysql        <------ copy uptick.database.sql to this dire
 Start a *mysql* shell session and create a the *Uptick* database in MySQL
 ```
 $ mysql -u <mysql_username> -p     <------- user will be prompted for password
-mysql> create database Uptick;
+mysql> create database Uptick;     <------- creates an empty database
 ```
 
 MySQL should return something similar as follows:
