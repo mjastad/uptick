@@ -332,7 +332,7 @@ mysql> select Host, User, Password from mysql.user;
 6 rows in set (0.00 sec)
 ```
 
-Exit MySQL by pressing <CNTRL-D>. 
+Exit MySQL by pressing *CNTRL-D*. 
 
 Download the MySQL version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mysql
 
@@ -374,7 +374,7 @@ mysql> show tables;
 mysql>
 ```
 
-Exit MySQL by pressing <CNTRL-D>. 
+Exit MySQL by pressing *CNTRL-D*. 
 
 Restart MySQL
 ```
