@@ -41,7 +41,7 @@ PostgreSQL is an object-relational database management system (ORDBMS) with an e
 ## Setup & Configuration
 
 ### Multi Node
-Node-clusters are good for taking advantage of multi core processors, but when it comes to horizontal scaling(adding more virtual machines), you'll need to use load balancers or reverse proxy. In most cases application developers can use any web server such as Apache or NGINX as a reverse proxy. for this application architecture Uptick uses NGINX.
+Node-clusters are good for taking advantage of multi core processors, but when it comes to horizontal scaling(adding more virtual machines), you'll need to use load balancers or reverse proxy. In most cases application developers can use any web server such as Apache or NGINX as a reverse proxy. for this application architecture Uptick uses NGINX as a web server.
 
 ![uptick](./img/multinodev2.png)
 
