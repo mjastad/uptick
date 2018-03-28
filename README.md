@@ -266,7 +266,18 @@ Display all the *documents* in the *parts* collection by running the following c
 ```
 
 ### MySQL
-Configure a MySQL database instance on a CentOS v7 Guest VM.  Insure that the database is accessible by remote clients.
+Configure a MySQL database instance on a CentOS v7 Guest VM.  Insure that the database is accessible by remote clients.  This can be done as follows:
+
+Login to the mysql server:
+```
+$ mysql -u username -p Uptick < uptick.database.sql
+```
+
+Create a rmote user account and grant them access
+```
+mysql> CREATE USER 'user@xx.xx.xx.xx';                                           <----------- creates a remote-user account
+mysql> GRANT ALL ON Uptick.* TO root@xx.xx.xx.xx IDENTIFIED BY ‘password';       <----------- grant remote user access
+```
 
 Download the MySQL version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mysql
 
@@ -280,11 +291,17 @@ $ cd /uptick/database/mysql        <------ copy uptick.database.sql to this dire
 
 Start a *mysql* shell session and create a the *Uptick* database in MySQL
 ```
-$ mysql -u <mysql_username> -p<mysql_user_pasword>
+$ mysql -u <mysql_username> -p     <------- user will be prompted for password
 mysql> create database Uptick;
 ```
 
-Exit mysql shell session and import the *Uptick* database file: *uptick.database.sql* using file-redirection.
+MySQL should return something similar as follows:
+```
+Output
+Query OK, 1 row affected (0.00 sec)
+```
+
+Exit mysql shell session and from the command-line import the *Uptick* database file: *uptick.database.sql* using file-redirection.
 ```
 $ mysql -u username -p Uptick < uptick.database.sql
 ```
