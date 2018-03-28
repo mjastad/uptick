@@ -1,5 +1,7 @@
+
+
 # Uptick Application
-The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and devlopment.  The application is architected using a Node.js server coupled with NGINX deployed as a proxy to allow for horizontal scaling. The application also provides back-end database support for MSSQL,MySQL, PGSQL, and Mongo.
+The uptick application is designed to be used as a boiler plate for provisioning infrastructure, and application deployment and development.  The application is architected using a Node.js server coupled with NGINX deployed as a proxy to allow for horizontal scaling. The application also provides back-end database support for MSSQL, MySQL, PGSQL, and Mongo.
 
 ![uptick](./img/uptick.png)
 
@@ -19,10 +21,10 @@ The uptick application is designed to be used as a boiler plate for provisioning
   * PGSQL 9.x
   
 ### Node.js
-Node.js is an open source Javascript runtime environment used to simplify instrumentating server-side and networking applications. The platform runs on Linux, OS X, FreeBSD, and Windows, and its applications are written in JavaScript. Node.js applications can be run at the command line. You can also configured Node to run them as a service, so that the application automatically restarts on reboot or failure - as if you were in a production environment.
+Node.js is an open source Javascript runtime environment used to simplify instrumenting server-side and networking applications. The platform runs on Linux, OS X, FreeBSD, and Windows, and its applications are written in JavaScript. Node.js applications can be run at the command line. You can also configure Node to run them as a service, so that the application automatically restarts on reboot or failure - as if you were in a production environment.
 
 ### NGINX
-Nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server.  The Uptick applicatioin utilizes NGINX as a reverse proxy.  Nginx can be deployed to serve dynamic HTTP content on the network using FastCGI, SCGI handlers for scripts, WSGI application servers or Phusion Passenger modules, and it can serve as a software load balancer.  Nginx uses an asynchronous event-driven approach to handling requests. Nginx's modular event-driven architecture can provide more predictable performance under high loads.
+Nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server.  The Uptick application utilizes NGINX as a reverse proxy.  Nginx can be deployed to serve dynamic HTTP content on the network using FastCGI, SCGI handlers for scripts, WSGI application servers or Phusion Passenger modules, and it can serve as a software load balancer.  Nginx uses an asynchronous event-driven approach to handling requests. Nginx's modular event-driven architecture can provide more predictable performance under high loads.
 
 ### MS SQL Server
 Microsoft SQL Server is a relational database management system developed by Microsoft. As a database server, it is a software product with the primary function of storing and retrieving data as requested by other software applications—which may run either on the same computer or on another computer across a network (including the Internet).
@@ -52,7 +54,7 @@ To setup a Multi Node deployment you'll need to perform the following:
   * 20GB Storage
 * Install NGINX on Guest VM #1
 * Install Node.js v9.x on Guest VM #2
-* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references).
+* Check to make sure SE Linux is not obfuscating path resolution (see SE Linux references).
 * Check to make sure Firewalls are configured to allow port resolution. 
 
 Install the Application Software to a working directory on the servers as follows:
@@ -109,7 +111,7 @@ To setup a Single Node deployment you'll need to perform the following:
 ```
 $ chmod -R 755 /var/www/html/*
 ```
-* Check to make sure SE Linux is not obfiscating path resolution (see SE Linux references).
+* Check to make sure SE Linux is not obfuscating path resolution (see SE Linux references).
 * Check to make sure Firewalls are configured to allow port resolution. 
 
 Install the Application Software to the working directory */var/www/html* on the **NGINX + Node.js** server as follows:
@@ -121,9 +123,9 @@ $ git clone https://github.com/mjastad/uptick.git
 ```
 
 ## Node Package(s)
-Node.js incorporates a package manager called NPM used to install and manage Node.js modules within the node.js enviornment.  NPM is similar to *yum* or *apt-get* on CentOS or Ubuntu repectively.  Node.js modules can be scoped globally or to specific projects for better isolation. change-management, and version control. When NPM installs modules pinned for a given project, it creates a folder named *"node_modules"*, where modules will be placed. All modules installed in the future for a given project will be placed in this folder.
+Node.js incorporates a package manager called NPM used to install and manage Node.js modules within the node.js environment.  NPM is similar to *yum* or *apt-get* on CentOS or Ubuntu respectively.  Node.js modules can be scoped globally or to specific projects for better isolation. change-management, and version control. When NPM installs modules pinned for a given project, it creates a folder named *"node_modules"*, where modules will be placed. All modules installed in the future for a given project will be placed in this folder.
 
-NPM can also generate a build-manifest named *package.json* for a specified project, where it can be used later to build a projects runtime.  The Uptick application uses a *package.json* to recreate the applications runtime dependancies and is included as part of the application software. 
+NPM can also generate a build-manifest named *package.json* for a specified project, where it can be used later to build a projects runtime.  The Uptick application uses a *package.json* to recreate the applications runtime dependencies and is included as part of the application software. 
 
 * Build the Node.js runtime for the Uptick project. The *package.json* should be in the root directory where you installed the application software (i.e. /var/www/html/).  Running the command below will build the Uptick Application's runtime.
 
@@ -140,7 +142,7 @@ $ npm build package.json
 ```
 
 ## Application
-There are several configuration files that need to be edited to mangage data and control-flow between the client and the back-end database.  These files are located in the *config* and *js* directories:
+There are several configuration files that need to be edited to manage data and control-flow between the client and the back-end database.  These files are located in the *config* and *js* directories:
 
 * **config/dbConfig.js** - Manages the supported database types: *mongo, mysql, mssql, pgsql*.  This binds the proper database router for connecting/communicating to the target database.
 * **config/mongoConfig.js** - Configures the IP address of the target mongo database server
@@ -155,7 +157,7 @@ var url = "http://NODE_SERVER_IP_ADDDRESS:3000/api/";
 ```
 
 ## Database
-As previously mentioned the Uptick application supports several databases.  Configuration files to manage the connection will need to be edited with the appropriate configuration data to successfulyl communicate witht he back-end database.
+As previously mentioned the Uptick application supports several databases.  Configuration files to manage the connection will need to be edited with the appropriate configuration data to successfully communicate with he back-end database.
 
 ### Database Type
 Modify Database Type configuration in the *config/dbConfig.rst* file as follows:
@@ -247,9 +249,9 @@ net:
 
 **Warning:** In a production environment admins should **NOT** comment out the *bindIp* line without enabling authorization to avoid unfettered *admin* access to all mongo databases on your MongoDB server!
 
-Download the MongoDB version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mongo
+Download the MongoDB version of the *Uptick* database (i.e. found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mongo
 
-Create diretory */uptick/database/mongo/*, copy the the *uptick.mongodb.data.tar* file to the new diretory.
+Create directory */uptick/database/mongo/*, copy the *uptick.mongodb.data.tar* file to the new directory.
 ```
 $ mkdir /uptick/database/mongo/
 $ cd /uptick/database/mongo/
@@ -290,7 +292,7 @@ Once MySQL is installed, Set the root user password:
 $ mysqladmin -u root password nutanix/4u
 ```
 
-Login to the mysql server and enter the new password wehn prompted.
+Login to the mysql server and enter the new password when prompted.
 ```
 $ mysql -u root -p
 ```
@@ -326,7 +328,7 @@ Download the MySQL version of the *Uptick* database (i.e found in the uptick rep
 
 **NOTE:** Using *git clone* is the proper way to download the database instances... 
 
-Create diretory */uptick/database/mysql*, and copy the the *uptick.database.sql* file to the new diretory.
+Create diretory */uptick/database/mysql*,  and copy the *uptick.database.sql* file to the new directory.
 ```
 $ mkdir /uptick/database/mysql
 $ cd /uptick/database/mysql        <------ copy uptick.database.sql to this directory
@@ -374,5 +376,3 @@ PostgreSQL support is currently under development.
 * [Installing MongoDB on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-centos-7)
 * [Installing MySQL Database on CentOS v7](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7)
 * [Import & Exporting MySQL Databases](https://www.digitalocean.com/community/tutorials/how-to-import-and-export-databases-in-mysql-or-mariadb)
-
-
