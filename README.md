@@ -293,16 +293,17 @@ Login to the mysql server and enter the new password wehn prompted.
 $ mysql -u root -p
 ```
 
-Create a rmote user account and grant them access
+Create a remote user account and grant them access from any (%) host.
 ```
 mysql> CREATE USER 'root'@'ip-address';                                           
-mysql> GRANT ALL ON Uptick.* TO 'root'@'ip-address' IDENTIFIED BY ‘password';    
+mysql> GRANT ALL ON Uptick.* TO 'root'@'%' IDENTIFIED BY ‘nutanix/4u';   
 mysql> FLUSH PRIVILEGES;
 ```
+**NOTE:** The user created above should be the *root* user and *password* from where you're running the Node Server.
 
-**OPTIONAL:** permit remote user access from any host using '%'
+**OPTIONAL:** permit remote user access from a specified host for more security.
 ```
-mysql> GRANT ALL ON Uptick.* TO 'root'@'%' IDENTIFIED BY ‘password'; 
+mysql> GRANT ALL ON Uptick.* TO 'root'@'remotehost-ipaddress' IDENTIFIED BY ‘nutanix/4u'; 
 ```
 Verify or show a listing of new created users:
 ```
