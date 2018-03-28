@@ -347,10 +347,7 @@ Output
 Query OK, 1 row affected (0.00 sec)
 ```
 
-Exit *mysql* shell session 
-```
-mysql> <CNTRL-D>.  
-```
+Exit *mysql* shell session by pressing <CNTRL-D>.  
 
 Using the command-line, import the *Uptick* database file: *uptick.database.sql* using file-redirection.
 ```
