@@ -121,6 +121,11 @@ Change to the directory */var/www/html* and use *git* to capture the *Uptick* re
 $ cd /var/www/html/
 $ git clone https://github.com/mjastad/uptick.git
 ```
+**NOTE:** A clone will create an additional directory *Uptick/*.  Move all files under *Uptick/* to */var/www/html/* and remove the empty *Uptick/* directory.
+```
+$ mv -rf /var/www/html/uptick/* /var/www/html/
+$ rm -rf /var/www/html/uptick
+```
 
 ## Node Package(s)
 Node.js incorporates a package manager called NPM used to install and manage Node.js modules within the node.js environment.  NPM is similar to *yum* or *apt-get* on CentOS or Ubuntu respectively.  Node.js modules can be scoped globally or to specific projects for better isolation. change-management, and version control. When NPM installs modules pinned for a given project, it creates a folder named *"node_modules"*, where modules will be placed. All modules installed in the future for a given project will be placed in this folder.
@@ -138,7 +143,7 @@ $ npm build package.json
 #### Single Node
 ```
 $ cd /var/www/html
-$ npm build package.json
+$ npm build
 ```
 
 ## Application
