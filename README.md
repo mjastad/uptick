@@ -230,6 +230,21 @@ The *Uptick* database images are in the */databases* folder.
 ### MongoDB
 Configure a MongoDB database instance on a CentOS v7 Guest VM.  Insure that the database is accessible from remote clients.
 
+Edit your MongoDB config file to allow remote access from any remote client: by editing the *mongod.conf* file:
+```
+$ sudo vi /etc/mongod.conf
+```
+
+Look for the **net** line and comment out the **bindIp** line under it, which is currently limiting MongoDB connections to *localhost:*
+```
+# network interfaces
+net:
+  port: 27017
+#  bindIp: 127.0.0.1  <------ comment out this line
+```
+
+**Warning:** In a production environment admins should **NOT** comment out the *bindIp* line without enabling authorization to avoid unfettered *admin* access to all mongo databases on your MongoDB server!
+
 Download the MongoDB version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mongo
 
 Create diretory */uptick/database/mongo/*, copy the the *uptick.mongodb.data.tar* file to the new diretory.
@@ -266,16 +281,21 @@ Display all the *documents* in the *parts* collection by running the following c
 ```
 
 ### MySQL
-Configure a MySQL database instance on a CentOS v7 Guest VM.  Insure that the database is accessible by remote clients.  This can be done as follows:
+Configure a MySQL database instance on a CentOS v7 Guest VM.  Insure that the database has a 'root' user and password, and is accessible by remote clients.
 
-Login to the mysql server:
+Once MySQL is installed, Set the root user password:
 ```
-$ mysql -u username -p Uptick < uptick.database.sql
+$ mysqladmin -u root password nutanix/4u
+```
+
+Login to the mysql server and enter the new password wehn prompted.
+```
+$ mysql -u root -p
 ```
 
 Create a rmote user account and grant them access
 ```
-mysql> CREATE USER 'user'@'ip-address';                                           <----------- creates a remote-user account
+mysql> CREATE USER 'root'@'ip-address';                                           <----------- creates a remote-user account
 mysql> GRANT ALL ON Uptick.* TO 'root'@'ip-address' IDENTIFIED BY ‘password';     <----------- grant remote user access
 mysql> FLUSH PRIVILEGES;
 ```
