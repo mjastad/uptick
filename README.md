@@ -295,14 +295,28 @@ $ mysql -u root -p
 
 Create a rmote user account and grant them access
 ```
-mysql> CREATE USER 'root'@'ip-address';                                           <----------- creates a remote-user account
-mysql> GRANT ALL ON Uptick.* TO 'root'@'ip-address' IDENTIFIED BY ‘password';     <----------- grant remote user access
+mysql> CREATE USER 'root'@'ip-address';                                           
+mysql> GRANT ALL ON Uptick.* TO 'root'@'ip-address' IDENTIFIED BY ‘password';    
 mysql> FLUSH PRIVILEGES;
 ```
 
-**OPTIONAL:** permit remote user access from any host 
+**OPTIONAL:** permit remote user access from any host using '%'
 ```
-mysql> GRANT ALL ON Uptick.* TO 'root'@'%' IDENTIFIED BY ‘password';              <----------- grant remote user access from any host
+mysql> GRANT ALL ON Uptick.* TO 'root'@'%' IDENTIFIED BY ‘password'; 
+```
+Verify or show a listing of new created users:
+```
+mysql> select Host, User, Password from mysql.user;
++--------------+-----------+-------------------------------------------+
+| Host         | User      | Password                                  |
++--------------+-----------+-------------------------------------------+
+| localhost    | root      | *8CD8DA5B27F8FE8E1910C36EFB9B5936888E141C |
+| 127.0.0.1    | root      |                                           |
+| ::1          | root      |                                           |
+| 10.21.19.101 | root      | *8CD8DA5B27F8FE8E1910C36EFB9B5936888E141C |
+| 10.21.19.103 | root      | *8CD8DA5B27F8FE8E1910C36EFB9B5936888E141C |
++--------------+-----------+-------------------------------------------+
+6 rows in set (0.00 sec)
 ```
 
 Download the MySQL version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mysql
@@ -315,19 +329,25 @@ $ mkdir /uptick/database/mysql
 $ cd /uptick/database/mysql        <------ copy uptick.database.sql to this directory
 ```
 
-Start a *mysql* shell session and create a the *Uptick* database in MySQL
+Start a *mysql* shell session as *root*
 ```
-$ mysql -u <mysql_username> -p     <------- user will be prompted for password
-mysql> create database Uptick;     <------- creates an empty database
+$ mysql -u root -p                 <------- user will be prompted for password (i.e. nutnaix/4u)
 ```
 
-MySQL should return something similar as follows:
+Create an empty database
 ```
+mysql> create database Uptick;     <------- creates an empty database
+
 Output
 Query OK, 1 row affected (0.00 sec)
 ```
 
-Exit *mysql* shell session.  Using the command-line, import the *Uptick* database file: *uptick.database.sql* using file-redirection.
+Exit *mysql* shell session 
+```
+mysql> <CNTRL-D>.  
+```
+
+Using the command-line, import the *Uptick* database file: *uptick.database.sql* using file-redirection.
 ```
 $ mysql -u username -p Uptick < uptick.database.sql
 ```
