@@ -275,8 +275,13 @@ $ mysql -u username -p Uptick < uptick.database.sql
 
 Create a rmote user account and grant them access
 ```
-mysql> CREATE USER 'user@xx.xx.xx.xx';                                           <----------- creates a remote-user account
-mysql> GRANT ALL ON Uptick.* TO root@xx.xx.xx.xx IDENTIFIED BY ‘password';       <----------- grant remote user access
+mysql> CREATE USER 'user'@'ip-address';                                           <----------- creates a remote-user account
+mysql> GRANT ALL ON Uptick.* TO 'root'@'ip-address' IDENTIFIED BY ‘password';     <----------- grant remote user access
+```
+
+Optional: permit remote user access from any host 
+```
+mysql> GRANT ALL ON Uptick.* TO 'root'@'%' IDENTIFIED BY ‘password';              <----------- grant remote user access from any host
 ```
 
 Download the MySQL version of the *Uptick* database (i.e found in the uptick repository) https://github.com/mjastad/uptick/tree/master/databases/mysql
