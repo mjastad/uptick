@@ -301,7 +301,7 @@ Output
 Query OK, 1 row affected (0.00 sec)
 ```
 
-Exit mysql shell session and from the command-line import the *Uptick* database file: *uptick.database.sql* using file-redirection.
+Exit *mysql* shell session.  Using the command-line, import the *Uptick* database file: *uptick.database.sql* using file-redirection.
 ```
 $ mysql -u username -p Uptick < uptick.database.sql
 ```
