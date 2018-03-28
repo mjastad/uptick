@@ -104,7 +104,7 @@ To setup a Single Node deployment you'll need to perform the following:
   * 1 Core/vCPU
   * VLAN
   * 20GB Storage
-* Install NGINX
+* Install NGINX.  Once NGINX installation has completed, modify the entry-point to /var/www/html in the NGINX condfiguration file. 
 * Install Node.js v9.x
 * Install all Application Software to */var/www/html* on the server (see steps below).
 * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
