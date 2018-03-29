@@ -138,7 +138,7 @@ NPM can also generate a build-manifest named *package.json* for a specified proj
 #### Multi Node
 ```
 $ cd /var/www/projects/uptick
-$ npm build package.json
+$ npm build 
 ```
 
 #### Single Node
