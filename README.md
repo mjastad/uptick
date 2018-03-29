@@ -287,6 +287,7 @@ $ mongo
 
 Display all the *documents* in the *parts* collection by running the following command
 ```
+> use Uptick;
 > db.parts.find();
 ```
 
