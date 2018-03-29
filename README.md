@@ -55,7 +55,7 @@ To setup a Multi Node deployment you'll need to perform the following:
 * Install NGINX on Guest VM #1
 * Install Node.js v9.x on Guest VM #2
 * Check to make sure SE Linux is not obfuscating path resolution (see SE Linux references).
-* Check to make sure Firewalls are configured to allow port resolution. 
+* Check to make sure Firewall is configured (or disabled) to allow port resolution.
 
 Install the Application Software to a working directory on the servers as follows:
 
@@ -86,6 +86,7 @@ Distribute the files across the servers as indicated below:
   * /var/www/html/fonts
   * /var/www/html/css
   * /var/www/html/images
+  * /var/www/html/js/data.js
   * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
   
 ```
