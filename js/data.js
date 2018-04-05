@@ -19,15 +19,28 @@ function getContent() {
           dataType: "json" });
 }
 
+function getInfo() {
+    getNodeInfo();
+    getHostInfo();
+}
+
 function getNodeInfo() {
     $.ajax(url + "info/",
-        { success: setInfo,
+        { success: setNodeInfo,
           type: "GET",
           dataType: "json" });
 }
 
-function setInfo(data, status, jqxhr) {
-	var nodejsInfo = '<div class="node-info">Node.js IP Address: ' + data['ip'] + ' <br/> Node.js Host Name: ' + data['hostname'] + '</div>';
+function getHostInfo() {
+    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+        console.log(data);
+        hostInfo = '<div class="host-info", style="padding: 5px 0;"> Ngnix Host IP Address: ' + location.hostname + ' <br/> Ngnix Host Name: ' + location.host + '</div>';
+        document.getElementById("hostInfo").innerHTML = hostInfo;
+    });
+}
+
+function setNodeInfo(data, status, jqxhr) {
+        var nodejsInfo = '<div class="node-info">Node.js IP Address: ' + data['ip'] + ' <br/> Node.js Host Name: ' + data['hostname'] + '</div>';
     document.getElementById("nodeInfo").innerHTML = nodejsInfo;
 }
 
