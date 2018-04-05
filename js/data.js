@@ -9,7 +9,9 @@ $("document").ready(function() {
     $("#getcontent").click(getContent);
     $("#add-data").click(addContent);
     $("#search-data").click(searchData);
-    $("#getnodeinfo").click(getNodeInfo);    
+    $("#getnodeinfo").click(getNodeInfo);
+    $("#sethostinfo").click(getHostInfo);
+
 });
 
 function getContent() {
