@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./css/bootstrap-grid.min.css">
     </head>
-    <body onload="getNodeInfo()">
+    <body onload="getInfo()">
     	<div class="container-fluid">
     	
     		<div class="row">
@@ -30,7 +30,7 @@
     	
 	    	<div class="row">
 	    		<div class="col-sm server-info">
-	    			<div style="padding: 5px 0;">Nginx IP address: 10.21.XX.XX<br/> Nginx Host Name: CentOS.localdomain</div>
+	    			<div id="hostInfo"></div>
 	    		</div>
 	    		<div class="col-sm server-info">
 	    			<div id="nodeInfo"></div>
