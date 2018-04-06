@@ -41,7 +41,7 @@ function getHostInfo() {
 }
 
 function setNodeInfo(data, status, jqxhr) {
-        var nodejsInfo = '<div class="node-info">Node.js IP Address: ' + data['ip'] + ' <br/> Node.js Host Name: ' + data['hostname'] + '</div>';
+    var nodejsInfo = '<div class="node-info">Node.js IP Address: ' + data['ip'] + ' <br/> Node.js Host Name: ' + data['hostname'] + '</div>';
     document.getElementById("nodeInfo").innerHTML = nodejsInfo;
 }
 
