@@ -11,7 +11,6 @@ $("document").ready(function() {
     $("#search-data").click(searchData);
     $("#getnodeinfo").click(getNodeInfo);
     $("#sethostinfo").click(getHostInfo);
-
 });
 
 function getContent() {
