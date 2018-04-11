@@ -88,9 +88,7 @@ Distribute the files across the servers as indicated below:
   * /var/www/html/fonts
   * /var/www/html/css
   * /var/www/html/images
-  * /var/www/html/js/data.js
-  * /var/www/html/js/bootstrap.bundle.min.js
-  * /var/www/html/js/jquery-3.2.1.js
+  * /var/www/html/js
   * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
   
 ```
