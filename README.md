@@ -82,6 +82,8 @@ Distribute the files across the servers as indicated below:
   * package.json
   * Insure files (including full path) have drwxr..xr..x (755) privileges.
 * *NGINX Server*
+  * Create directory */var/www/html* 
+  * Edit the NGINX *Index* value from: ***/usr/share/ngnix*** to ***/var/www/html*** in the */etc/ngnix/ngnix.conf* file. 
   * /var/www/html/index.html
   * /var/www/html/fonts
   * /var/www/html/css
@@ -105,7 +107,10 @@ To setup a Single Node deployment you'll need to perform the following:
   * 1 Core/vCPU
   * VLAN
   * 20GB Storage
-* Install NGINX.  Once NGINX installation has completed, modify the entry-point to /var/www/html in the NGINX condfiguration file. 
+  
+* Install NGINX. 
+* Once NGNIX has successfully completed installation, login as *root* and create directory: */var/www/html* 
+* Edit the NGINX *Index* value from: ***/usr/share/ngnix*** to ***/var/www/html*** in the */etc/ngnix/ngnix.conf* file. 
 * Install Node.js v9.x
 * Install all Application Software to */var/www/html* on the server (see steps below).
 * Insure files (including full path) have **drwxr..xr..x** (755) privileges.
